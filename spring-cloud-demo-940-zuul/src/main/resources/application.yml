@@ -1,0 +1,20 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: zuul-proxy
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8079/eureka/
+
+zuul:
+  routes:
+    user:
+      path: /user/**
+      serviceId: ribbon-server
+    movie:
+      path: /movie/**
+      serviceId: feign-client
