@@ -144,12 +144,12 @@ public class SpringBootCloud900SpringEurekaClientApplication {
 
 浏览器访问 http://localhost:8079/ 使用帐号和密码登录 显示如下
 
-![图片](https://raw.githubusercontent.com/funsonli/spring-boot-demo/master/doc/images/spring-boot-cloud-900-eureka-01.png?raw=true)
+![图片](https://raw.githubusercontent.com/funsonli/spring-cloud-demo/master/doc/images/spring-cloud-demo-900-eureka-01.png?raw=true)
 
 
 再运行客户端
 
-![图片](https://raw.githubusercontent.com/funsonli/spring-boot-demo/master/doc/images/spring-boot-cloud-900-eureka-03.png?raw=true)
+![图片](https://raw.githubusercontent.com/funsonli/spring-cloud-demo/master/doc/images/spring-cloud-demo-900-eureka-03.png?raw=true)
 
 
 ### 参考
