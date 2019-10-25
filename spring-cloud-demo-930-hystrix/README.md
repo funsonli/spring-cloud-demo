@@ -1,6 +1,6 @@
 # Spring Cloud入门样例-930-Hystrix断路器熔断服务
 
-> 当服务器宕机或者访问过大，客户端需要直接返回服务器繁忙。本demo演示如何客户端使用Hystric进行熔断服务，不再继续访问服务器导致超时前端nginx返回502错误。
+> 当服务器宕机或者访问过大，客户端需要直接返回服务器繁忙。本demo演示如何客户端使用hystrix进行熔断服务，不再继续访问服务器导致超时前端nginx返回502错误。
 
 ### 前言
 
@@ -72,9 +72,9 @@ feign:
 ### 代码解析
 
 
-MovieService.java 如下 ribbon-server为ribbon 服务器 yml中配置的名称。 服务不可用调用MovieServiceHystricImpl中的方法
+MovieService.java 如下 ribbon-server为ribbon 服务器 yml中配置的名称。 服务不可用调用MovieServicehystrixImpl中的方法
 ```
-@FeignClient(value = "ribbon-server", fallback = MovieServiceHystricImpl.class)
+@FeignClient(value = "ribbon-server", fallback = MovieServicehystrixImpl.class)
 public interface MovieService {
 
     @RequestMapping(value = "/balance", method = RequestMethod.GET)
@@ -86,7 +86,7 @@ public interface MovieService {
 MovieService.java 如下 
 ```
 @Component
-public class MovieServiceHystricImpl implements MovieService {
+public class MovieServicehystrixImpl implements MovieService {
     @Override
     public String getBalance(String name) {
         return name + "服务器繁忙，请稍后再试";

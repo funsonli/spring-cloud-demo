@@ -1,6 +1,6 @@
 package com.funsonli.springclouddemo930hystrixfeignclient.service;
 
-import com.funsonli.springclouddemo930hystrixfeignclient.hystric.MovieServiceHystricImpl;
+import com.funsonli.springclouddemo930hystrixfeignclient.hystrix.MovieServiceHystrixImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Funsonli
  * @date 2019/10/25
  */
-@FeignClient(value = "ribbon-server", fallback = MovieServiceHystricImpl.class)
+@FeignClient(value = "ribbon-server", fallback = MovieServiceHystrixImpl.class)
 public interface MovieService {
 
     @RequestMapping(value = "/balance", method = RequestMethod.GET)
