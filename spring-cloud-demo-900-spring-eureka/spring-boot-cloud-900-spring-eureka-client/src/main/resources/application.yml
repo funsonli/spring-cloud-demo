@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: service-hello
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123456@127.0.0.1:8079/eureka/ #路径中要Eureka服务器端的帐号和密码
+
