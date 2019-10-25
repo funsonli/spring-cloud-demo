@@ -1,0 +1,20 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      label: maseter
+      server:
+        git:
+          uri: https://github.com/funsonli/spring-cloud-demo-config/
+          search-paths:
+          username:
+          password:
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8079/eureka/
