@@ -1,4 +1,4 @@
-package com.funson.springclouddemo920feignclient;
+package com.funsonli.springclouddemo920feignclient;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

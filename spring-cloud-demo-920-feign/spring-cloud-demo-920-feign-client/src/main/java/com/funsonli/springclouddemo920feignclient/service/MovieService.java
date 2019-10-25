@@ -1,4 +1,4 @@
-package com.funson.springclouddemo920feignclient.service;
+package com.funsonli.springclouddemo920feignclient.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClient;

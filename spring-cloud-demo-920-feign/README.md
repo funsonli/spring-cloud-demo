@@ -11,7 +11,7 @@
 - [Spring Boot入门样例-005-如何运行](https://github.com/funsonli/spring-boot-demo/blob/master/doc/spring-boot-demo-005-run.md)
 
 ## Eureka Server
-监控管理所有接入的服务器
+监控管理所有接入的服务器，本节Eureka使用spring-cloud-demo-910-ribbon中的spring-cloud-demo-eureka-server
 
 ### pox.xml
 必要的依赖如下，具体参见该项目的pox.xml

@@ -1,6 +1,6 @@
-package com.funson.springclouddemo920feignclient.controller;
+package com.funsonli.springclouddemo920feignclient.controller;
 
-import com.funson.springclouddemo920feignclient.service.MovieService;
+import com.funsonli.springclouddemo920feignclient.service.MovieService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
