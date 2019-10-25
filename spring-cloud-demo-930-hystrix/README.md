@@ -107,7 +107,7 @@ public class MovieController {
     @GetMapping("/buy")
     public String buy(@RequestParam String name) {
         String balance = movieService.getBalance(name);
-        return balance;
+        return balance + " I am client";
     }
 }
 
@@ -123,29 +123,13 @@ public class MovieController {
 
 ![图片](https://raw.githubusercontent.com/funsonli/spring-cloud-demo/master/doc/images/spring-cloud-demo-900-eureka-01.png?raw=true)
 
-编译运行多台ribbon 服务器， 在右侧的Maven中编译项目
+启动spring-cloud-demo-920-feign-server作为服务端
 
-![图片](https://raw.githubusercontent.com/funsonli/spring-cloud-demo/master/doc/images/spring-cloud-demo-910-ribbon-00.png?raw=true)
-
-```
-D:\project\spring-cloud-demo\spring-cloud-demo-920-fiegn\spring-cloud-demo-920-fiegn-server\target>
-java -jar spring-cloud-demo-920-fiegn-server-0.0.1-SNAPSHOT.jar --server.port=8086
-
-D:\project\spring-cloud-demo\spring-cloud-demo-920-fiegn\spring-cloud-demo-920-fiegn-server\target>
-java -jar spring-cloud-demo-920-fiegn-server-0.0.1-SNAPSHOT.jar --server.port=8087
-```
-
-运行Feign Client项目
-
-浏览器访问 http://localhost:8079/ 
-![图片](https://raw.githubusercontent.com/funsonli/spring-cloud-demo/master/doc/images/spring-cloud-demo-910-ribbon-01.png?raw=true)
-
+运行spring-cloud-demo-930-hystrix-feign-client Feign Client项目
 
 浏览器访问 http://localhost:8080/buy?name=funsonli
 
-刷新该页面，看看Client项目随机从两个Server获取数据
-
-![图片](https://raw.githubusercontent.com/funsonli/spring-cloud-demo/master/doc/images/spring-cloud-demo-910-ribbon-04.png?raw=true)
+将spring-cloud-demo-920-feign-server作为服务端关掉，再次刷新浏览器
 ![图片](https://raw.githubusercontent.com/funsonli/spring-cloud-demo/master/doc/images/spring-cloud-demo-930-ribbon-01.png?raw=true)
 
 
@@ -232,7 +216,7 @@ public class MovieController {
     @GetMapping("/buy")
     public String buy(@RequestParam String name) {
         String balance = movieService.getBalance(name);
-        return balance;
+        return balance + " I am client";
     }
 }
 

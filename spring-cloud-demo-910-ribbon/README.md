@@ -234,7 +234,7 @@ public class MovieController {
     @GetMapping("/buy")
     public String buy(@RequestParam String name) {
         String balance = movieService.getBalance(name);
-        return balance;
+        return balance + " I am client";
     }
 }
 
