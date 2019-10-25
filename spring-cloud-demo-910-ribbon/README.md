@@ -1,6 +1,7 @@
 # Spring Cloud入门样例-910-Ribbon负载均衡
 
 > 有多个服务器时，客户端随机访问服务器。本demo演示如何使用Ribbon进行负载均衡。
+> 假定用户在购票服务器上购票时，需要先去用户服务器上查询是否有足够的余额，用户服务器是公共平台，作为Ribbon Server，购票服务器作为Ribbon Client。
 
 ### 前言
 
@@ -11,6 +12,8 @@
 - [Spring Boot入门样例-005-如何运行](https://github.com/funsonli/spring-boot-demo/blob/master/doc/spring-boot-demo-005-run.md)
 
 ## Eureka Server
+监控管理所有接入的服务器
+
 ### pox.xml
 必要的依赖如下，具体参见该项目的pox.xml
 ```
@@ -57,11 +60,11 @@ spring:
 ### 代码解析
 
 
-SpringBootCloud900SpringEurekaServerApplication.java 如下 增加注解@EnableEurekaServer 同时增加@EnableWebSecurity并在eureka目录禁用csrf
+SpringCloudDemoEurekaServerApplication.java 如下 增加注解@EnableEurekaServer 同时增加@EnableWebSecurity并在eureka目录禁用csrf
 ```
 @SpringBootApplication
 @EnableEurekaServer
-public class SpringBootCloud900SpringEurekaServerApplication {
+public class SpringCloudDemoEurekaServerApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootCloud900SpringEurekaServerApplication.class, args);
@@ -268,6 +271,9 @@ java -jar spring-cloud-demo-910-ribbon-server-0.0.1-SNAPSHOT.jar --server.port=8
 浏览器访问 http://localhost:8080/buy?name=funsonli
 
 刷新该页面，看看Client项目随机从两个Server获取数据
+
+![图片](https://raw.githubusercontent.com/funsonli/spring-cloud-demo/master/doc/images/spring-cloud-demo-910-ribbon-04.png?raw=true)
+![图片](https://raw.githubusercontent.com/funsonli/spring-cloud-demo/master/doc/images/spring-cloud-demo-910-ribbon-05.png?raw=true)
 
 
 ### 参考
