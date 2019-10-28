@@ -1,6 +1,6 @@
-# Spring Cloud入门样例-950-Hystrix断路器熔断服务
+# Spring Cloud入门样例-950-config统一配置服务器Config Server
 
-> 当服务器宕机或者访问过大，客户端需要直接返回服务器繁忙。本demo演示如何客户端使用hystrix进行熔断服务，不再继续访问服务器导致超时前端nginx返回502错误。
+> 当有多台服务器时，使用分散的配置比较麻烦。本demo演示微服务中如何从统一的配置服务器上读取配置。
 
 ### 前言
 
@@ -15,7 +15,7 @@
 
 
 ## Config Server
-zuul proxy网关也是一个Spring Boot项目，进行路由转发
+Config proxy网关也是一个Spring Boot项目，进行路由转发
 
 ### pox.xml
 必要的依赖如下，具体参见该项目的pox.xml
@@ -71,7 +71,7 @@ eureka:
 ### 代码解析
 
 
-SpringCloudDemo940ZuulApplication.java 如下 加上@EnableConfigServer注解
+SpringCloudDemo950ConfigServerApplication.java 如下 加上@EnableConfigServer注解
 ```
 @SpringBootApplication
 @EnableConfigServer
@@ -90,7 +90,9 @@ public class SpringCloudDemo950ConfigServerApplication {
 
 点击[运行](https://github.com/funsonli/spring-boot-demo/blob/master/doc/spring-boot-demo-005-run.md)
 
-先运行Config Server服务器
+运行eureka服务器
+
+运行Config Server服务器
 
 浏览器访问 http://localhost:8888/zookeeper/dev
 
@@ -190,6 +192,12 @@ public class StudentController {
 ```
 
 ### 运行
+
+运行eureka服务器
+
+运行Config Server服务器
+
+运行Config Client服务器
 
 ``` 
 浏览器访问 http://localhost:8077/student/zookeeper

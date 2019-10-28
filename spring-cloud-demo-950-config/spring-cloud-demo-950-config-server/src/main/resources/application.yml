@@ -18,3 +18,9 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://127.0.0.1:8079/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
