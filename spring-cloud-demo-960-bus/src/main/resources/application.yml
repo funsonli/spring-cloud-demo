@@ -1,0 +1,46 @@
+server:
+  port: 8077
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: config-client
+
+  cloud:
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+    config:
+      label: master
+      profile: dev
+      uri: http://localhost:8888/
+      discovery:
+        service-id: config-server
+        enabled: true
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    #    指明采用发送者确认模式
+    publisher-confirms: true
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: auto
+      direct:
+        acknowledge-mode: auto
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8079/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
